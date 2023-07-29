@@ -11,6 +11,7 @@ const NavBar = (): JSX.Element => {
             dispatch(logout());
         } else {
             dispatch(login(["token", "userid"]));
+            location.href="http://localhost:3001/login";
         }
     }
 

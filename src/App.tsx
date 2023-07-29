@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Settings from './pages/Settings';
 import Ownposts from './pages/Ownposts';
 import Explore from './pages/Explore';
+import Auth from './pages/Auth';
 
 function App () {
   return (
@@ -16,6 +17,7 @@ function App () {
         <Route path="/explore" element={<Explore />} />
         <Route path="/me" element={<Ownposts />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/auth" element={<Auth />} />
       </Routes>
     </div>
   );
