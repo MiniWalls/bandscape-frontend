@@ -27,7 +27,7 @@ const Home = (): JSX.Element => {
 
   return (
     <div className="max-w-6xl  mx-auto justify-center items-center">
-      <h1 className="mt-16 text-4xl">Is logged in:{auth.isLoggedIn.toString()} Token:{auth.token} Userid:{auth.userId}</h1>
+      <h1 className="mt-16 text-4xl">Is logged in:{auth.isLoggedIn.toString()} Token:{auth.token} Username:{auth.username}</h1>
       <div className="mt-8 grid md:grid-cols-3 gap-6 list-none">
         {data?.map((item: Post) => ( //Map through the data and display in a list
           <li key={item.id}>

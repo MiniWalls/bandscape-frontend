@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import axios from "axios";
+import config from "../config";
 
 type Session = {
   key: string;
@@ -19,6 +20,7 @@ const Auth = (): JSX.Element => {
     return url.searchParams.get("token");
   }
 
+  //Could use refactoring, move api call to a function
   useEffect(() => {
     const token = getToken();
     const cookie = document.cookie.match(new RegExp('(^| )' + 'auth' + '=([^;]+)'));
@@ -27,7 +29,8 @@ const Auth = (): JSX.Element => {
       console.log(auth);
     } else {
       if (token) {
-        axios.get<{session: Session}>("http://localhost:3001/auth?token=" + token)
+        const url = config.API_URL + "auth?token=" + token;
+        axios.get<{session: Session}>(url)
         .then((response) => {
           const session: Session = response.data.session;
           const authCookie: AuthCookie = {

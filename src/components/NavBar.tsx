@@ -1,6 +1,7 @@
 import { BsYinYang, BsSuitHeartFill, BsFillGearFill } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAuth, login, logout } from '../store/store';
+import config from '../config';
 
 const NavBar = (): JSX.Element => {
     const auth = useSelector(selectAuth);
@@ -11,7 +12,7 @@ const NavBar = (): JSX.Element => {
             dispatch(logout());
         } else {
             dispatch(login(["token", "userid"]));
-            location.href="http://localhost:3001/login";
+            location.href= config.API_URL + "auth/login";
         }
     }
 

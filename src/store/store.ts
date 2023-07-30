@@ -4,7 +4,7 @@ import { AuthState } from './types';
 const initialState: AuthState = {
     isLoggedIn: false,
     token: '',
-    userId: '',
+    username: '',
 };
 
 export const authSlice = createSlice({
@@ -14,12 +14,12 @@ export const authSlice = createSlice({
         login: (state, action: PayloadAction<string[]>) => {
             state.isLoggedIn = true;
             state.token = action.payload[0];
-            state.userId = action.payload[1];
+            state.username = action.payload[1];
         },
         logout: (state) => {
             state.isLoggedIn = false;
             state.token = '';
-            state.userId = '';
+            state.username = '';
         },
     },
 });

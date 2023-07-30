@@ -7,6 +7,7 @@ import Settings from './pages/Settings';
 import Ownposts from './pages/Ownposts';
 import Explore from './pages/Explore';
 import Auth from './pages/Auth';
+import InitializationComponent from './components/InitializationComponent';
 
 function App () {
   return (
@@ -25,6 +26,7 @@ function App () {
 
 const AppWrapper = () => (
   <Provider store={store}>
+    <InitializationComponent />
     <App />
   </Provider>
 );
