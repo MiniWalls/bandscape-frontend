@@ -4,7 +4,7 @@ import store from './store/store';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Settings from './pages/Settings';
-import Ownposts from './pages/Ownposts';
+import Makepost from './pages/Makepost';
 import Explore from './pages/Explore';
 import Auth from './pages/Auth';
 import InitializationComponent from './components/InitializationComponent';
@@ -16,7 +16,7 @@ function App () {
       <Routes>
         <Route path="/*" element={<Home />} />
         <Route path="/explore" element={<Explore />} />
-        <Route path="/me" element={<Ownposts />} />
+        <Route path="/post" element={<Makepost />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>

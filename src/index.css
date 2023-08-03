@@ -15,6 +15,9 @@
     .post-item{
         @apply hover:scale-125 hover:pr-8 hover:pl-8 transition-all cursor-pointer;
     }
+    .tags-container p:not(:last-child)::after {
+        content: ", ";
+      }
 }
 
 @layer utilities{

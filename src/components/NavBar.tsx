@@ -24,7 +24,7 @@ const NavBar = (): JSX.Element => {
             relative flex items-center hover:cursor-pointer" onClick={() => window.location.href="/"}>
                 Bandscape</h1>
             <NavBarIcon icon={<BsYinYang size="28"/>} url="explore" />
-            <NavBarIcon icon={<BsSuitHeartFill size="28"/>} url="me" />
+            <NavBarIcon icon={<BsSuitHeartFill size="28"/>} url="post" />
             <NavBarIcon icon={<BsFillGearFill size="28"/>} url="settings" />
             <button className="ml-auto mr-4 text-left" onClick={() => handleClick()}>
                 {auth.isLoggedIn ? 'Logout' : 'Login'}
