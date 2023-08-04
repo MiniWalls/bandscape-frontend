@@ -4,7 +4,7 @@ import { selectAuth } from "../store/store";
 import { Album, Track } from "../api/lastfmTypes";
 import { getAlbum, getTrack } from "../api/apiUtils";
 import AlbumDisplay from "./AlbumDisplay";
-import { title } from "process";
+import { postPost } from "../api/serverUtils";
 
 const NewPostForm = (): JSX.Element => {
   const [isTrack, setIsTrack] = useState(true);
@@ -13,7 +13,7 @@ const NewPostForm = (): JSX.Element => {
   const [body, setBody] = useState("");
   const [artist, setArtist] = useState("");
   const [trackOrAlbum, setTrackOrAlbum] = useState("");
-  const [lastfmAttachment, setLastfmAttachment] = useState<string | Album | Track>("");
+  const [lastfmAttachment, setLastfmAttachment] = useState<null | Album | Track>(null);
   const auth = useSelector(selectAuth);
   const username: string = auth.username;
 
@@ -25,7 +25,7 @@ const NewPostForm = (): JSX.Element => {
   };
 
   const handleCancelClick = () => {
-    setLastfmAttachment("");
+    setLastfmAttachment(null);
   };
 
   const handlePostSubmit = () => {
@@ -33,9 +33,16 @@ const NewPostForm = (): JSX.Element => {
       title: title,
       body: body,
       userid: username,
-      lastfmAttachment: lastfmAttachment != null ? lastfmAttachment : null
+      lastfmattachment: lastfmAttachment != null ? lastfmAttachment : null
     };
-    console.log(postBody);
+
+    postPost(postBody)
+    .then((result: string | Error) => {
+      console.log(result);
+    })
+    .catch((error: Error) => {
+      console.log(error);
+    });
   };
 
   useEffect(() => {
@@ -149,7 +156,7 @@ const NewPostForm = (): JSX.Element => {
             py-3 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mx-2
             disabled:cursor-not-allowed"
         type="button" onClick={handleLastFMSubmit} disabled={isSubmitting}>Add to post</button>
-        {lastfmAttachment != "" && (
+        {lastfmAttachment != null && (
           <button className="block appearance-none w-2/5 bg-red-400 border border-gray-200 text-gray-700 
           py-3 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 mx-2
           disabled:cursor-not-allowed"
@@ -157,7 +164,7 @@ const NewPostForm = (): JSX.Element => {
         )}
       </div>
       <div>
-        {lastfmAttachment != "" && (
+        {lastfmAttachment != null && (
           <AlbumDisplay album={lastfmAttachment as Album} />
         )}
       </div>
