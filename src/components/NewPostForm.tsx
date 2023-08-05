@@ -4,6 +4,7 @@ import { selectAuth } from "../store/store";
 import { Album, Track } from "../api/lastfmTypes";
 import { getAlbum, getTrack } from "../api/apiUtils";
 import AlbumDisplay from "./AlbumDisplay";
+import TrackDisplay from "./TrackDisplay";
 import { postPost } from "../api/serverUtils";
 
 const NewPostForm = (): JSX.Element => {
@@ -20,6 +21,9 @@ const NewPostForm = (): JSX.Element => {
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
 
+    //Clear attachment or program crashes
+    setLastfmAttachment(null);
+    
     //False if attach track isnt selected, true if it is
     setIsTrack(value === "Attach track");
   };
@@ -59,7 +63,6 @@ const NewPostForm = (): JSX.Element => {
       .then((result: Track | Error) => {
         if ("track" in result) {
           setLastfmAttachment(result);
-          console.log(lastfmAttachment);
         } else {
           // It's an Error
           const error: Error = result;
@@ -165,6 +168,7 @@ const NewPostForm = (): JSX.Element => {
       </div>
       <div>
         {lastfmAttachment != null && (
+          isTrack ? <TrackDisplay track={lastfmAttachment as Track} /> :
           <AlbumDisplay album={lastfmAttachment as Album} />
         )}
       </div>
