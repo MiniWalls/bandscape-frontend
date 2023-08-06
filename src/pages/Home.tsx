@@ -10,6 +10,7 @@ type Post = {
   body: string;
   datetime: string;
   userid: number;
+  lastfmattachment: null;
 };
 
 const Home = (): JSX.Element => {
@@ -31,7 +32,7 @@ const Home = (): JSX.Element => {
       <div className="mt-8 grid md:grid-cols-3 gap-6 list-none">
         {data?.map((item: Post) => ( //Map through the data and display in a list
           <li key={item.id}>
-            <PostItem title={item.title} body={item.body} datetime={item.datetime} userid={item.userid} />
+            <PostItem title={item.title} body={item.body} datetime={item.datetime} userid={item.userid} lastfmattachment={item.lastfmattachment} />
           </li>
         ))}
       </div>
