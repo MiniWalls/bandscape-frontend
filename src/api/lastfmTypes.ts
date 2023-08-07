@@ -50,11 +50,11 @@ export interface Album {
   album: {
     artist: string;
     mbid?: string;
-    tags: {
+    tags?: {
       tag: Tag[];
     };
     playcount: string;
-    image: Image[];
+    image?: Image[];
     tracks: AlbumTracks;
     url: string;
     name: string;
@@ -75,16 +75,16 @@ export interface Track {
 		listeners: string;
 		playcount: string;
 		artist: Artist;
-		album: {
+		album?: {
 			artist: string;
 			title: string;
 			mbid?: string;
 			url: string;
-			image: Image[];
+			image?: Image[];
 		};
 		userplaycount: string;
 		userloved: string;
-		toptags: Toptags;
+		toptags?: Toptags;
 		wiki?: Wiki;
 	};
 }
