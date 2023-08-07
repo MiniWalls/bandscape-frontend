@@ -11,7 +11,7 @@ const PostItemAttachment = (props: ComponentProps): JSX.Element => {
     return(
       <div>
         <div>
-          <img className="h-16 w-full object-cover" src={lastfmattachment.track.album.image[3]["#text"]} alt="Album cover" />
+          <img className="h-16 w-full object-cover text-red-400" src={lastfmattachment.track.album?.image?.[3]?.["#text"]} alt="Track cover not found" />
         </div>
         <div>
           {lastfmattachment.track.name}
@@ -24,7 +24,7 @@ const PostItemAttachment = (props: ComponentProps): JSX.Element => {
     return(
       <div>
         <div>
-          <img className="h-16 w-full object-cover" src={lastfmattachment.album.image[3]["#text"]} alt="Album cover" />
+          <img className="h-16 w-full object-cover" src={lastfmattachment.album.image?.[3]["#text"]} alt="Album cover not found" />
         </div>
         <div>
           {lastfmattachment.album.name}
