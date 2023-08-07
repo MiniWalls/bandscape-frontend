@@ -4,7 +4,7 @@ const TrackDisplay = ({ track }: { track: Track }) => {
     const { name, artist, album, toptags, userplaycount } = track.track as {
         name: string;
         artist: { url: string; name: string; mbid?: string};
-        album:  { title: string, image: { size: string; "#text": string }[] };
+        album?:  { title: string, image: { size: string; "#text": string }[] };
         toptags: { tag: { name: string; url: string }[] };
         userplaycount: string;
     };
@@ -23,7 +23,7 @@ const TrackDisplay = ({ track }: { track: Track }) => {
               </p>
             ))}
           </div>
-          <img src={album.image[3]["#text"]} alt="Album cover" />
+          <img src={album?.image[3]["#text"]} alt="Album cover not found" />
           <p className="mt-2">User plays: {userplaycount}</p>
         </div>
       </div>
