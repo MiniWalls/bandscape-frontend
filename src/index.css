@@ -13,19 +13,18 @@
         cursor-pointer;
     }
     .post-item{
-        @apply hover:scale-125 hover:pr-8 hover:pl-8 transition-all cursor-pointer;
+        @apply hover:scale-[1.02] md:hover:scale-125 hover:px-2 md:hover:px-8 transition-all cursor-pointer;
     }
     .tags-container p:not(:last-child)::after {
         content: ", ";
-      }
+    }
 }
 
 @layer utilities{
     .group:hover .line-clamp-1,
     .group:hover .line-clamp-2 {
-      display: block; /* Reset display property to show all lines */
-      max-height: none; /* Reset max-height to allow the content to expand */
-      overflow: visible; /* Reset overflow to show all content */
+      display: block; /* Reset display property to show all lines */ 
+      max-height: 6rem; /* Reset max-height to allow the content to expand */
       text-overflow: unset; /* Remove ellipsis style */
     }
 }

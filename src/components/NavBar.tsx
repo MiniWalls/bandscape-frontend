@@ -20,7 +20,7 @@ const NavBar = (): JSX.Element => {
         <div className="fixed top-0 w-screen h-16 m-0
         flex flex-row
         text-3xl bg-gray-400 text-white shadow-lg">
-            <h1 className="font-bold text-gray-800 mr-5 ml-1 
+            <h1 className="font-bold text-gray-800 mr-5 ml-4 
             relative flex items-center hover:cursor-pointer" onClick={() => window.location.href="/"}>
                 Bandscape</h1>
             <NavBarIcon icon={<BsYinYang size="28"/>} url="explore" />

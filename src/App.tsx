@@ -11,7 +11,7 @@ import InitializationComponent from './components/InitializationComponent';
 
 function App () {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col px-2 sm:px-0">
       <NavBar />
       <Routes>
         <Route path="/*" element={<Home />} />
