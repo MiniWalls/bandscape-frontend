@@ -12,9 +12,9 @@ interface ComponentProps {
 
 const PostItem = (props: ComponentProps): JSX.Element => {
   return (
-    <div>
+    <div className="">
       <PostItemDialog {...props}>
-        <div className="post-item group">
+        <div className="post-item group border-grey-300 border-x-2 border-y-2">
           <div>
             {props.lastfmattachment != null && (
               <PostItemAttachment lastfmattachment={props.lastfmattachment} />

@@ -1,4 +1,4 @@
-import { BsYinYang, BsSuitHeartFill, BsFillGearFill } from 'react-icons/bs';
+import { BsYinYang, BsSuitHeartFill/* , BsFillGearFill */ } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAuth, login, logout } from '../store/store';
 import config from '../config';
@@ -23,9 +23,9 @@ const NavBar = (): JSX.Element => {
             <h1 className="font-bold text-gray-800 mr-5 ml-4 
             relative flex items-center hover:cursor-pointer" onClick={() => window.location.href="/"}>
                 Bandscape</h1>
-            <NavBarIcon icon={<BsYinYang size="28"/>} url="explore" />
-            <NavBarIcon icon={<BsSuitHeartFill size="28"/>} url="post" />
-            <NavBarIcon icon={<BsFillGearFill size="28"/>} url="settings" />
+            <NavBarIcon icon={<BsSuitHeartFill size="28"/>} url="home" />
+            <NavBarIcon icon={<BsYinYang size="28"/>} url="post" />
+            {/* <NavBarIcon icon={<BsFillGearFill size="28"/>} url="settings" /> */}
             <button className="ml-auto mr-4 text-left" onClick={() => handleClick()}>
                 {auth.isLoggedIn ? 'Logout' : 'Login'}
             </button>

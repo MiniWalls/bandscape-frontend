@@ -1,6 +1,7 @@
 import { useState, Fragment, ReactNode } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Album, Track } from "../api/lastfmTypes";
+import { AiOutlineClose } from 'react-icons/ai';
 
 /* We use ReactNode to allow jsx children to be passed to this component
    The point is to make this wrap each post so you can click anywhere inside of them to open the post. */
@@ -35,8 +36,11 @@ const PostItemDialog = (props: ComponentProps): JSX.Element => {
     const { album, track } = props.lastfmattachment as Album & Track; //Get the album or track from the props if exists
 
     const image = track?.album?.image?.[3]?.["#text"] || album?.image?.[3]?.["#text"] || null;
-    const artist = track?.artist?.name || album?.artist || null;
-    const name = "Track: " + track?.name || "Album: " + album?.name || null; //We insert album and track strings here so we dont have to make a mess in jsx
+    const artist = track?.artist?.name || album?.artist;
+    const name = track ? `Track: ${track.name}` : `Album: ${album?.name}`; //If track is not null we concate track to the string, otherwise album
+    const lastfmurl = track?.url || album?.url;
+    const userplays = track?.userplaycount || album?.userplaycount;
+
 
     return (
       <>
@@ -71,14 +75,17 @@ const PostItemDialog = (props: ComponentProps): JSX.Element => {
                 >
                   <Dialog.Panel className="w-full max-w-5xl transform overflow-hidden rounded-2xl bg-slate-50 p-6 text-left align-middle shadow-xl transition-all">
                     <Dialog.Title as="h3" 
-                    className="text-xl font-medium leading-6 text-gray-900">
+                    className="text-2xl font-medium leading-6 text-gray-900 mb-4">
+                      <div onClick={closeModal} className="float-right close-icon"><AiOutlineClose size="24"/></div>
                       {props.title}
                     </Dialog.Title>
-                    <div className="flex flex-row">
+                    <div className="flex flex-row space-x-2">
                       <img className="sm:max-h-24 md:max-h-80 w-2/4 object-contain text-red-400" src={image || undefined}/>
-                      <div>
+                      <div className="self-center space-y-1 border-b-[1px] border-b-black">
                         <p>Artist: {artist}</p>
                         <p>{name}</p>
+                        <p>LastFM: <p onClick={() => window.location.href=lastfmurl} className="text-blue-400 underline hover:cursor-pointer">{lastfmurl}</p></p>
+                        <p>Plays at the time of post: {userplays}</p>
                       </div>
                     </div>
                     <div className="mt-2">
@@ -143,7 +150,8 @@ const DialogWithoutAttachment = (props: ComponentProps): JSX.Element => {
               >
                 <Dialog.Panel className="w-full max-w-5xl transform overflow-hidden rounded-2xl bg-slate-50 p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title as="h3" 
-                  className="text-xl font-medium leading-6 text-gray-900 first-letter:capitalize">
+                  className="text-2xl font-medium leading-6 text-gray-900 mb-4">
+                    <div onClick={closeModal} className="float-right close-icon"><AiOutlineClose size="24"/></div>
                     {props.title}
                   </Dialog.Title>
                   <div className="mt-2">

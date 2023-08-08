@@ -5,21 +5,23 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Settings from './pages/Settings';
 import Makepost from './pages/Makepost';
-import Explore from './pages/Explore';
+/* import Explore from './pages/Explore'; */
 import Auth from './pages/Auth';
 import InitializationComponent from './components/InitializationComponent';
 
 function App () {
   return (
-    <div className="flex flex-col px-2 sm:px-0">
+    <div className="flex flex-col">
       <NavBar />
-      <Routes>
-        <Route path="/*" element={<Home />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/post" element={<Makepost />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/auth" element={<Auth />} />
-      </Routes>
+      <div className="px-2">
+        <Routes>
+          <Route path="/*" element={<Home />} />
+          {/* <Route path="/explore" element={<Explore />} /> */}
+          <Route path="/post" element={<Makepost />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/auth" element={<Auth />} />
+        </Routes>
+      </div>
     </div>
   );
 }

@@ -12,8 +12,15 @@
         transition-all duration-300 ease-linear
         cursor-pointer;
     }
+    .close-icon{
+        @apply bg-gray-200 text-gray-800
+        hover:bg-gray-900 hover:text-white
+        rounded-3xl hover:rounded-xl
+        transition-all duration-200 ease-linear
+        cursor-pointer;
+    }
     .post-item{
-        @apply hover:scale-[1.02] md:hover:scale-125 hover:px-2 md:hover:px-8 transition-all cursor-pointer;
+        @apply hover:scale-[1.02] md:hover:scale-[1.10] transition-all cursor-pointer hover:bg-gray-100;
     }
     .tags-container p:not(:last-child)::after {
         content: ", ";
@@ -29,6 +36,6 @@
     }
 }
 
-* {
+/* * {
     outline: 1px solid red;
-}
+} */
