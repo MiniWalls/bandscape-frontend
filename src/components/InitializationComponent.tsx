@@ -1,3 +1,6 @@
+/* Lets make this component also check if token is still valid with Server, incase it isnt we delete the auth cookie from cookies */
+
+
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../store/store";

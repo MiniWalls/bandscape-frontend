@@ -73,18 +73,20 @@ const PostItemDialog = (props: ComponentProps): JSX.Element => {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full max-w-5xl transform overflow-hidden rounded-2xl bg-slate-50 p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Panel className="w-full max-w-5xl transform overflow-hidden rounded-2xl bg-slate-50 p-6 text-left shadow-xl transition-all">
                     <Dialog.Title as="h3" 
-                    className="text-2xl font-medium leading-6 text-gray-900 mb-4">
-                      <div onClick={closeModal} className="float-right close-icon"><AiOutlineClose size="24"/></div>
+                    className="text-3xl  min-h-fit font-medium leading-8 text-gray-900 mb-4">
+                      <div onClick={closeModal} className="float-right close-icon"><AiOutlineClose size="30"/></div>
                       {props.title}
                     </Dialog.Title>
                     <div className="flex flex-row space-x-2">
-                      <img className="sm:max-h-24 md:max-h-80 w-2/4 object-contain text-red-400" src={image || undefined}/>
-                      <div className="self-center space-y-1 border-b-[1px] border-b-black">
+                      <div className="w-2/5 mr-3 pl-auto pr-0 float-left align-middle">
+                        <img className="sm:max-h-24 md:max-h-80 w-full object-contain text-red-400" src={image || undefined} alt="Cover not found"/>
+                      </div>
+                      <div className="lg:text-lg w-full self-center space-y-1 border-b-[1px] border-b-black">
                         <p>Artist: {artist}</p>
                         <p>{name}</p>
-                        <p>LastFM: <p onClick={() => window.location.href=lastfmurl} className="text-blue-400 underline hover:cursor-pointer">{lastfmurl}</p></p>
+                        <p>LastFM: <p onClick={() => window.location.href=lastfmurl} className="text-blue-400 underline hover:cursor-pointer inline">{lastfmurl}</p></p>
                         <p>Plays at the time of post: {userplays}</p>
                       </div>
                     </div>
