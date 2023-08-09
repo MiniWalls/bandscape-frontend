@@ -5,7 +5,6 @@
   "dependencies": {
     "@headlessui/react": "^1.7.16",
     "@reduxjs/toolkit": "^1.9.5",
-    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/node": "^16.18.38",
@@ -28,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --watchAll --verbose",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix"
@@ -52,9 +51,11 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "^29.5.2",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@types/jest": "^29.5.3",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
     "eslint": "^8.44.0",
     "eslint-config-standard-with-typescript": "^36.0.0",
     "eslint-plugin-import": "^2.27.5",

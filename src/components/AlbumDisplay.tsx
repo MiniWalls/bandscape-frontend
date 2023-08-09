@@ -18,13 +18,13 @@ const AlbumDisplay = ({ album }: { album: Album }) => {
           {/* I apologize for everyone reading this code. In this loop the tags are looped and shown with commas.
           I have also cheated whitespace with inline css by giving right margin to the span elements with , in them */}
           {tags?.tag?.slice(0, 3).map((tag: { name: string; url: string }, index: number) => (
-            <p key={tag.name} className="inline">
+            <p key={tag.name} className="inline" data-testid="albumdisplay-tag">
               {tag.name}
               {index < 3 - 1 ? <span className="mr-1">,</span> : ''}
             </p>
           ))}
         </div>
-        <img src={image?.[3]?.["#text"]} alt="Album cover" />
+        <img src={image?.[3]?.["#text"]} alt="Album cover" data-testid="albumdisplay-cover" />
         <p className="mt-2">User plays: {userplaycount}</p>
       </div>
     </div>
