@@ -39,7 +39,7 @@ const NavBarIcon = ({ icon, url }: { icon: JSX.Element, url: string }): JSX.Elem
     };
 
     return(
-        <div className="navbar-icon group" data-testid="navbar-icon" onClick={handleClick}>
+        <div className="navbar-icon group" data-testid="navbar-icon" id={url} onClick={handleClick}>
             {icon}
         </div>
     );

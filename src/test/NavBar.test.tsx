@@ -1,9 +1,9 @@
 import React from 'react';
-import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import NavBar from '../components/NavBar';
 import { Provider } from 'react-redux';
 import store from '../store/store';
+import '@testing-library/jest-dom/extend-expect';
 
 describe('Navbar tests', () => {
   test('Navbar should have title', () => {

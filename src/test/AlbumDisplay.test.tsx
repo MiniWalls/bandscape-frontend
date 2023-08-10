@@ -7,7 +7,6 @@ import { testAlbum } from "./test-utils";
 describe('AlbumDisplay tests', () => {
   test('AlbumDisplay renders correctly', () => {
     const component = render(<AlbumDisplay album={testAlbum} />);
-    screen.debug();
     expect(component.container);
   });
   test('AlbumDisplay renders artist and album name', () => {
