@@ -1,0 +1,10 @@
+node_modules
+src
+public
+.git
+.gitignore
+.env
+cypress
+coverage
+cypress.config.ts
+package.json

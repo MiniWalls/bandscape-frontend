@@ -1,5 +1,4 @@
 import axios from 'axios';
-import config from '../config';
 import { Album, Track } from './lastfmTypes';
 
 /* axios.interceptors.request.use((config) => {
@@ -14,7 +13,7 @@ axios.interceptors.response.use((response) => {
 
 export async function getAlbum(artist: string, album: string, username: string): Promise<Album | Error> {
   try {
-    const url = config.API_URL + "lastfm/album?artist=" + artist + "&album=" + album + "&username=" + username;
+    const url = process.env.REACT_APP_SERVER_URL as string + "lastfm/album?artist=" + artist + "&album=" + album + "&username=" + username;
     const response = await axios.get(url);
     
     return response.data as Album;
@@ -25,7 +24,7 @@ export async function getAlbum(artist: string, album: string, username: string):
 
 export async function getTrack(artist: string, track: string, username: string): Promise<Track | Error> {
   try {
-    const url = config.API_URL + "lastfm/track?artist=" + artist + "&track=" + track + "&username=" + username;
+    const url = process.env.REACT_APP_SERVER_URL as string + "lastfm/track?artist=" + artist + "&track=" + track + "&username=" + username;
     const response = await axios.get(url);
 
     return response.data as Track;

@@ -1,4 +1,3 @@
-import config from "../config";
 import axios from "axios";
 import { Album, Track } from "./lastfmTypes";
 
@@ -21,7 +20,7 @@ axios.interceptors.response.use((response) => {
 
 export async function postPost(data: Post): Promise<string | Error> {
     try {
-        const url = config.API_URL + "posts";
+        const url = process.env.REACT_APP_SERVER_URL as string + "posts";
         const response = await axios.post(url, data);
         
         return response.data as string;

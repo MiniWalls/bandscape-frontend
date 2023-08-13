@@ -1,7 +1,6 @@
 import { BsYinYang, BsSuitHeartFill/* , BsFillGearFill */ } from 'react-icons/bs';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAuth, login, logout } from '../store/store';
-import config from '../config';
 
 const NavBar = (): JSX.Element => {
     const auth = useSelector(selectAuth);
@@ -12,7 +11,7 @@ const NavBar = (): JSX.Element => {
             dispatch(logout());
         } else {
             dispatch(login(["token", "userid"]));
-            location.href= config.API_URL + "auth/login";
+            location.href= process.env.REACT_APP_SERVER_URL as string + "auth/login";
         }
     }
 
@@ -26,8 +25,8 @@ const NavBar = (): JSX.Element => {
             <NavBarIcon icon={<BsSuitHeartFill size="28"/>} url="home" />
             <NavBarIcon icon={<BsYinYang size="28"/>} url="post" />
             {/* <NavBarIcon icon={<BsFillGearFill size="28"/>} url="settings" /> */}
-            <button className="ml-auto mr-4 text-left" onClick={() => handleClick()}>
-                {auth.isLoggedIn ? 'Logout' : 'Login'}
+            <button className="ml-auto mr-4 text-left text-xl" onClick={() => handleClick()}>
+                {auth.isLoggedIn ? `Logout(${auth.username})` : 'Login'}
             </button>
         </div>
     );

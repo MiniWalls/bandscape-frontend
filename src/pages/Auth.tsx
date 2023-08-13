@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import config from "../config";
 
 type Session = {
   key: string;
@@ -14,6 +13,7 @@ type AuthCookie = {
 };
 
 const Auth = (): JSX.Element => {
+  const [authText, setAuthText] = useState<string>("Authentication in progress...");
 
   function getToken(): string | null {
     const url = new URL(window.location.href);
@@ -27,9 +27,10 @@ const Auth = (): JSX.Element => {
     if(cookie) {
       const auth: AuthCookie = JSON.parse(cookie[2]) as AuthCookie;
       console.log(auth);
+      setAuthText("Auth successful");
     } else {
       if (token) {
-        const url = config.API_URL + "auth?token=" + token;
+        const url = process.env.REACT_APP_SERVER_URL as string + "auth?token=" + token;
         axios.get<{session: Session}>(url)
         .then((response) => {
           const session: Session = response.data.session;
@@ -38,19 +39,23 @@ const Auth = (): JSX.Element => {
             username: session.name
           };
           document.cookie = "auth=" + JSON.stringify(authCookie);
+          setAuthText("Auth successful");
         }).catch((error) => {
           console.log(error);
         });
       } else {
-        console.log("no token found");
+        setAuthText("No token found");
       }
     }
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 4000);
   }, []);
 
 
   return(
-    <div className="mt-10">
-      <h1 className="text-4xl">Auth</h1>
+    <div className="md:max-w-6xl  mx-auto justify-center items-center mb-10 mt-16">
+      <h1 className="text-4xl">{authText}</h1>
     </div>
   );
 };
