@@ -43,6 +43,7 @@ const NewPostForm = (): JSX.Element => {
     postPost(postBody)
     .then((result: string | Error) => {
       console.log(result);
+      window.location.href = "/";
     })
     .catch((error: Error) => {
       console.log(error);

@@ -1,7 +1,5 @@
 import PostItem from "../components/PostItem";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectAuth } from "../store/store";
 import axios from "axios";
 
 
@@ -15,7 +13,6 @@ type Post = {
 };
 
 const Home = (): JSX.Element => {
-  const auth = useSelector(selectAuth); //sets auth to be the state from the store
   const [data, setData] = useState<Post[] | null>();
 
   useEffect(() => {
