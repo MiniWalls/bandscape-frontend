@@ -9,6 +9,7 @@ const NavBar = (): JSX.Element => {
     function handleClick() {
         if(auth.isLoggedIn) {
             dispatch(logout());
+            document.cookie = "auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         } else {
             dispatch(login(["token", "userid"]));
             location.href= process.env.REACT_APP_SERVER_URL as string + "auth/login";
