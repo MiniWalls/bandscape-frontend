@@ -1,7 +1,8 @@
 # BandScape-frontend
-The frontend application that is used to show content from a discord server in the web. 
+The frontend application for BandScape project, the "social media" platform with LastFM api for discussing music!
 
 Demo on youtube https://youtu.be/acfWEG6S3E0
+
 Running live on App Engine https://bandscape-summerproject.ew.r.appspot.com/
 
 ## Introduction
