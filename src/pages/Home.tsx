@@ -1,6 +1,6 @@
-import PostItem from "../components/PostItem";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import PostsGrid from "../components/PostsGrid";
 
 
 type Post = {
@@ -25,14 +25,8 @@ const Home = (): JSX.Element => {
 }, []);
 
   return (
-    <div className="md:max-w-6xl  mx-auto justify-center items-center mb-10">
-      <div className="mt-24 grid sm:grid-cols-1 md:grid-cols-3 gap-6 list-none">
-        {data?.map((item: Post) => ( //Map through the data and display in a list
-          <li key={item.id}>
-            <PostItem title={item.title} body={item.body} datetime={item.datetime} userid={item.userid} lastfmattachment={item.lastfmattachment} />
-          </li>
-        ))}
-      </div>
+    <div className="mt-24">
+        {data ? <PostsGrid posts={data} /> : <p>Loading...</p>}
     </div>
   );
 };
