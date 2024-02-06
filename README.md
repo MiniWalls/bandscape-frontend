@@ -3,7 +3,8 @@ The frontend application for BandScape project, the "social media" platform with
 
 Demo on youtube https://youtu.be/acfWEG6S3E0
 
-Running live on App Engine https://bandscape-summerproject.ew.r.appspot.com/
+~~Running live on App Engine https://bandscape-summerproject.ew.r.appspot.com/~~
+Google Cloud credits expired
 
 ## Introduction
 
